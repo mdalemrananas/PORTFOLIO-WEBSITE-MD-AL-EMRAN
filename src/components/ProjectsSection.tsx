@@ -17,7 +17,19 @@ import byteArenaImg from '@/assets/ByteArena_Homepage.jpeg';
 import uniEatsImg from '@/assets/uniEat.jpeg';
 
 const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<{
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    fullDescription: string;
+    tech: string[];
+    features: string[];
+    image: string;
+    github: string;
+    live: string;
+    youtube: string;
+  } | null>(null);
 
   const projects = [
     {

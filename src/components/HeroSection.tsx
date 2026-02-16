@@ -14,8 +14,9 @@ const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
     // Create a temporary link for resume download
     const link = document.createElement('a');
     
-    // Use absolute URL for GitHub Pages
-    link.href = window.location.origin + '/Portfolio-Md-Al-Emran/MD_AL_EMRAN_CV.pdf';
+    // Use base path for both development and production
+    const basePath = import.meta.env.BASE_URL || '/';
+    link.href = basePath + 'MD_AL_EMRAN_CV.pdf';
     link.download = 'MD_AL_EMRAN_CV.pdf';
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
@@ -26,7 +27,7 @@ const HeroSection = ({ onNavigate, onDownloadResume }: HeroSectionProps) => {
     
     // Fallback: open in new tab if download fails
     setTimeout(() => {
-      window.open(window.location.origin + '/Portfolio-Md-Al-Emran/MD_AL_EMRAN_CV.pdf', '_blank');
+      window.open(basePath + 'MD_AL_EMRAN_CV.pdf', '_blank');
     }, 1000);
   };
 
